@@ -1,0 +1,20 @@
+{
+  "name": "emaildomainscanner",
+  "version": "1.0.0",
+  "description": "Scans emails against a long list of throwaway domains",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scanner",
+    "email",
+    "throwaway"
+  ],
+  "author": "Shaun O'Neill (XeliteXirish)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.3.2"
+  }
+}

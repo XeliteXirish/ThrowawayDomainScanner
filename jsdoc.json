@@ -1,0 +1,11 @@
+{
+  "opts": {
+    "template": "node_modules/tui-jsdoc-template",
+    "recusrive": true
+  },
+  "templates": {
+    "name": "Elite Moodle Scraper",
+    "footerText": "My awesome footer text",
+    "useCollapsibles": false
+  }
+}
