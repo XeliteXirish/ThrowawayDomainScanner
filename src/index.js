@@ -3,31 +3,63 @@ const path = require('path');
 const axios = require('axios');
 const chalk = require('chalk');
 
-const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-let preloadData = fs.readFileSync('../data/throwaway_list.json');
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+let preloadData = require('../data/throwaway_list.json');
 
 class DomainScanner {
-    constructor(listUrls = [], options = {loadUrlLists: false}) {
-        this.listUrls = listUrls || [];
-        if(!Array.isArray(listUrls) && options.loadUrlLists) throw "Parameter must be an array of list URLS!";
+    constructor(domainList) {
+        if (!domainList) this.domainList = new DomainList();
+        else this.domainList = domainList;
 
-        if (!options.loadUrlLists) {
+    }
+
+    get database() {
+        return this.domainList;
+    }
+
+    scan(email) {
+        return this.domainList.testDomain(email);
+    }
+}
+
+class DomainList {
+    constructor(listUrl) {
+        this.domains = [];
+        this.usedDefault = false;
+        this.finishedLoading = false;
+
+        if (!listUrl) {
+            this.usedDefault = true;
             try {
-                preloadData = JSON.parse(preloadData);
                 preloadData.forEach(domain => {
                     // Sanity checking
-                    if (!listUrls.includes(domain) || !emailRegex.test(domain));
-
-                    this.listUrls.push(domain);
-                    
+                    if (!listUrl.includes(domain) || !emailRegex.test(domain)) {
+                        this.domains.push(domain);
+                    }
                 });
-
+                this.finishedLoading = true;
             } catch (err) {
                 throw "Unable to parse preloaded JSON data from throwaway_list.json!";
             }
+        } else this.listUrl = listUrl;
+    }
+
+    async loadExternal() {
+        try {
+            if (!this.finishedLoading) {
+                let res = await axios.get(this.listUrl);
+
+            }
+        } catch (err) {
+            throw "Unable to load external domains!";
         }
+    }
 
-        this.listUrls = listUrls;
-
+    testDomain(email) {
+        if (!this.finishedLoading) throw "Haven't finished loading complete list!";
+        if (!email) return false;
+        return this.domains.some(domain => {
+            return email.includes(domain);
+        })
     }
 }
