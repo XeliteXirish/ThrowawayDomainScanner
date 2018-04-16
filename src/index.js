@@ -16,7 +16,6 @@ class DomainScanner {
     constructor(domainList) {
         if (!domainList) this.domainList = new DomainList();
         else this.domainList = domainList;
-
     }
 
     /**
@@ -80,4 +79,8 @@ class DomainList {
             return email.includes(domain);
         })
     }
+}
+
+module.exports = {
+    DomainScanner, DomainList
 }
