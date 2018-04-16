@@ -5,13 +5,24 @@ const axios = require('axios');
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let preloadData = require('../data/throwaway_list.json');
 
+/**
+ * Scanner object, uses default list if none is supplied as a paramater.
+ */
 class DomainScanner {
+    /**
+     * Create a new scanning object, optionally takes a DomainList as a paramater
+     * @param {domainList} Domain List - List object to test email domain against.
+     */
     constructor(domainList) {
         if (!domainList) this.domainList = new DomainList();
         else this.domainList = domainList;
 
     }
 
+    /**
+     * Returns the DomainList object associated with this scanner
+     * @return {domainList} - The domain list
+     */
     get database() {
         return this.domainList;
     }
