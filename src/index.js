@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
-const chalk = require('chalk');
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let preloadData = require('../data/throwaway_list.json');
@@ -17,8 +16,12 @@ class DomainScanner {
         return this.domainList;
     }
 
+    get ready() {
+        return this.domainList.finishedLoading || false;
+    }
+
     scan(email) {
-        return this.domainList.testDomain(email);
+        return this.domainList.testDomain(email) || false;
     }
 }
 
@@ -42,6 +45,10 @@ class DomainList {
                 throw "Unable to parse preloaded JSON data from throwaway_list.json!";
             }
         } else this.listUrl = listUrl;
+    }
+
+    get listSize(){
+        return this.domains.length;
     }
 
     async loadExternal() {
