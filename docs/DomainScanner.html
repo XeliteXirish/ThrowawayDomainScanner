@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Class: DomainScanner | Elite Moodle Scraper</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="">
+
+        <img src="img/toast-ui.png" width="100%" height="100%">
+
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Elite Moodle Scraper</a></h1>
+
+        <span class="version">v1.0.0</span>
+
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+
+    <div class="lnb-api hidden"><h3>Classes</h3>
+        <ul>
+            <li><a href="DomainList.html">DomainList</a>
+                <div class="hidden" id="DomainList_sub"></div>
+            </li>
+            <li><a href="DomainScanner.html">DomainScanner</a>
+                <div class="hidden" id="DomainScanner_sub">
+                    <div class="member-type">Members</div>
+                    <ul class="inner">
+                        <li><a href="DomainScanner.html#database">database</a></li>
+                        <li><a href="DomainScanner.html#ready">ready</a></li>
+                    </ul>
+                    <div class="member-type">Methods</div>
+                    <ul class="inner">
+                        <li><a href="DomainScanner.html#scan">scan</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+
+
+    <section>
+
+        <header>
+
+            <h2><span class="attribs"><span class="type-signature"></span></span>DomainScanner<span class="signature">(domainList)</span><span
+                    class="type-signature"></span></h2>
+
+            <div class="class-description">Scanner object, uses default list if none is supplied as a paramater.</div>
+
+
+        </header>
+
+        <article>
+
+            <div class="container-overview">
+
+
+                <dt>
+
+                    <h4 class="name" id="DomainScanner">
+
+                        new <span class="type-signature"></span>DomainScanner<span class="signature">(domainList)</span><span
+                            class="type-signature"></span>
+
+
+                        <div class="container-source members">
+                            <code><a href="index.js.html">index.js</a></code>,
+                            <code><a href="index.js.html#line11">line 11</a></code>
+                        </div>
+
+                    </h4>
+
+
+                </dt>
+                <dd>
+
+
+                    <div class="description">
+                        Create a new scanning object, optionally takes a DomainList as a paramater
+                    </div>
+
+
+                    <div class="container-params">
+                        <h5>Parameters:</h5>
+
+                        <table class="params">
+                            <thead>
+                            <tr>
+
+                                <th>Name</th>
+
+
+                                <th>Type</th>
+
+
+                                <th class="last">Description</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                            <tr>
+
+                                <td class="name"><code>domainList</code></td>
+
+
+                                <td class="type">
+
+
+                                    <span class="param-type"><a href="DomainList.html">DomainList</a></span>
+
+
+                                </td>
+
+
+                                <td class="description last">List object to test email domain against.</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <dl class="details">
+
+
+                    </dl>
+
+
+                </dd>
+
+
+            </div>
+
+
+            <h3 class="subsection-title">Members</h3>
+
+            <dl>
+
+
+                <dt>
+                    <h4 class="name" id="database">
+                        <span class="type-signature"></span>database<span class="type-signature"></span>
+
+                        <div class="container-source members">
+                            <code><a href="index.js.html">index.js</a></code>,
+                            <code><a href="index.js.html#line25">line 25</a></code>
+                        </div>
+
+                    </h4>
+
+
+                </dt>
+                <dd>
+
+                    <div class="description">
+                        Returns the DomainList object associated with this scanner
+                    </div>
+
+
+                    <!--
+
+                    -->
+
+
+                    <dl class="details">
+
+
+                    </dl>
+
+
+                </dd>
+
+
+                <dt>
+                    <h4 class="name" id="ready">
+                        <span class="type-signature"></span>ready<span class="type-signature"></span>
+
+                        <div class="container-source members">
+                            <code><a href="index.js.html">index.js</a></code>,
+                            <code><a href="index.js.html#line33">line 33</a></code>
+                        </div>
+
+                    </h4>
+
+
+                </dt>
+                <dd>
+
+                    <div class="description">
+                        Returns the ready status of the domain list
+                    </div>
+
+
+                    <!--
+
+                    -->
+
+
+                    <dl class="details">
+
+
+                    </dl>
+
+
+                </dd>
+
+            </dl>
+
+
+            <h3 class="subsection-title">Methods</h3>
+
+            <dl>
+
+
+                <dt>
+
+                    <h4 class="name" id="scan">
+
+                        <span class="type-signature"></span>scan<span class="signature">(email)</span><span
+                            class="type-signature"> &rarr; {boolean}</span>
+
+
+                        <div class="container-source members">
+                            <code><a href="index.js.html">index.js</a></code>,
+                            <code><a href="index.js.html#line42">line 42</a></code>
+                        </div>
+
+                    </h4>
+
+
+                </dt>
+                <dd>
+
+
+                    <div class="description">
+                        Test the email address against the domain list
+                    </div>
+
+
+                    <div class="container-params">
+                        <h5>Parameters:</h5>
+
+                        <table class="params">
+                            <thead>
+                            <tr>
+
+                                <th>Name</th>
+
+
+                                <th>Type</th>
+
+
+                                <th class="last">Description</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                            <tr>
+
+                                <td class="name"><code>email</code></td>
+
+
+                                <td class="type">
+
+
+                                    <span class="param-type">String</span>
+
+
+                                </td>
+
+
+                                <td class="description last">Email address</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <div class="container-returns">
+                        <h5>Returns:</h5>
+
+
+                        <span class="param-type">boolean</span>
+
+
+                        - - The result of weather the email address was in the database.
+
+
+                    </div>
+
+
+                    <dl class="details">
+
+
+                    </dl>
+
+
+                </dd>
+
+            </dl>
+
+
+        </article>
+
+    </section>
+
+
+</div>
+
+<footer>
+    <img class="logo" src="img/toast-ui.png" style="">
+    <div class="footer-text">My awesome footer text</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script>
+    var id = 'DomainScanner_sub'.replace(/"/g, '_');
+    var selectedApi = document.getElementById(id); // do not use jquery selector
+    var $selectedApi = $(selectedApi);
+
+    $selectedApi.removeClass('hidden');
+    $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    showLnbApi();
+</script>
+
+</body>
+</html>

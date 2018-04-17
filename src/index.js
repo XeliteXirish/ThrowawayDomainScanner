@@ -11,7 +11,7 @@ let preloadData = require('../data/throwaway_list.json');
 class DomainScanner {
     /**
      * Create a new scanning object, optionally takes a DomainList as a paramater
-     * @param {domainList} Domain List - List object to test email domain against.
+     * @param {DomainList} domainList - List object to test email domain against.
      */
     constructor(domainList) {
         if (!domainList) this.domainList = new DomainList();
@@ -20,22 +20,38 @@ class DomainScanner {
 
     /**
      * Returns the DomainList object associated with this scanner
-     * @return {domainList} - The domain list
+     * @return {DomainList} - The domain list
      */
     get database() {
         return this.domainList;
     }
 
+    /**
+     * Returns the ready status of the domain list
+     * @return {Boolean} - If the associated domain list has finished loading.
+     */
     get ready() {
         return this.domainList.finishedLoading || false;
     }
 
+    /**
+     * Test the email address against the domain list
+     * @param {String} email - Email address
+     * @return {boolean} - The result of weather the email address was in the database.
+     */
     scan(email) {
         return this.domainList.testDomain(email) || false;
     }
 }
 
+/**
+ * Used to store the list of scam email domains.
+ */
 class DomainList {
+    /**
+     * Create a new list, returns the default list if no url is supplied
+     * @param {String} listUrl - The url of the JSON formatted domain list
+     */
     constructor(listUrl) {
         this.domains = [];
         this.usedDefault = false;

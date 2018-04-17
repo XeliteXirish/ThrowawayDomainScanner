@@ -4,7 +4,9 @@
   "description": "Scans emails against a long list of throwaway domains",
   "main": "./src/index.js",
   "scripts": {
-    "test": "jest"
+    "start": "node src/index",
+    "test": "jest",
+    "docs": "jsdoc ./src/index.js -c ./jsdoc.json -p ./package.json -d ./docs -r ./README.md"
   },
   "keywords": [
     "scanner",
@@ -17,6 +19,8 @@
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "jsdoc": "^3.5.5",
+    "tui-jsdoc-template": "^1.2.2"
   }
 }
