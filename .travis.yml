@@ -6,5 +6,13 @@ cache:
      - node_modules
 before_script:
   - npm install
+before_deploy:
+  - ./before_deploy.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
 notifications:
   email: false
+  webhooks: https://travis.shaunoneill.com/travis-ci.php
