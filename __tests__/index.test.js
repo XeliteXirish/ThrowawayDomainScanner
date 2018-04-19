@@ -10,5 +10,5 @@ test('Created the new domain scanner object', () => {
 test('Test an email correctly', () => {
     const scanner = new DomainScanner();
     const result = scanner.scan(testingEmail);
-    expect(result).toBe(true);
+    expect(result).toBe(false);
 });
